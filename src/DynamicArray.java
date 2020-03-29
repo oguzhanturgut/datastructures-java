@@ -12,7 +12,7 @@ public class DynamicArray<T> implements Iterable<T> {
     }
 
     public DynamicArray(int capacity) {
-        if(capacity < 0) throw new IllegalArgumentException("Illegal Capacity: " + capacity);
+        if (capacity < 0) throw new IllegalArgumentException("Illegal Capacity: " + capacity);
         this.capacity = capacity;
         arr = (T[]) new Object[capacity];
     }
@@ -34,7 +34,7 @@ public class DynamicArray<T> implements Iterable<T> {
 
     public void add(T elem) {
         if (len + 1 > capacity) {  // resize array
-            if(capacity ==0) capacity = 1;
+            if (capacity == 0) capacity = 1;
             else capacity *= 2; //double array size
             T[] newArr = (T[]) new Object[capacity];
             for (int i = 0; i < len; i++) {
@@ -46,11 +46,11 @@ public class DynamicArray<T> implements Iterable<T> {
     }
 
     public T removeAt(int index) {
-        if(index >= len && index<0) throw new IndexOutOfBoundsException();
+        if (index >= len && index < 0) throw new IndexOutOfBoundsException();
         T data = arr[index];
         T[] newArr = (T[]) new Object[len - 1];
         for (int i = 0, j = 0; i < len; i++, j++) {
-            if(i==index) j--;
+            if (i == index) j--;
             else newArr[j] = arr[i];
         }
         arr = newArr;
@@ -103,11 +103,11 @@ public class DynamicArray<T> implements Iterable<T> {
         if (len == 0) {
             return "[]";
         } else {
-            StringBuilder sb = new StringBuilder(len).append("[");
+            StringBuilder sb = new StringBuilder(len).append("[ ");
             for (T t : arr) {
                 sb.append(t).append(",");
             }
-            return sb.append(arr[len - 1]).append("]").toString();
+            return sb.append(arr[len - 1]).append(" ]").toString();
         }
     }
 }
