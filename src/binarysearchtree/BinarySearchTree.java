@@ -1,3 +1,5 @@
+package binarysearchtree;
+
 public class BinarySearchTree<T extends Comparable<T>> {
 
     // Tracks the number of nodes in this BST
